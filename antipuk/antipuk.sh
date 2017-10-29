@@ -21,5 +21,5 @@ do
         say ' ' 
     fi
     
-    sleep 2
+    sleep 1
 done

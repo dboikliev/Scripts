@@ -1,4 +1,4 @@
-#This script aims to prevent an issue which campe up after an update to MacOS High Sierra.
+#This script aims to prevent an issue which came up after an update to MacOS High Sierra.
 #It causes random popping coming out of the speakers when coreaudiod decides to go to sleep. 
 
 

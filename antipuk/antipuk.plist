@@ -1,7 +1,18 @@
-#This script aims to prevent an issue which came up after an update to MacOS High Sierra.
-#It causes random popping coming out of the speakers when coreaudiod decides to go to sleep. 
-
-
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+<key>Label</key>
+<string>com.mattsday.antipop</string>
+<key>KeepAlive</key>
+<false/>
+<key>RunAtLoad</key>
+<true/>
+<key>ProgramArguments</key>
+<array>
+<string>/bin/bash</string>
+<string>-c</string>
+<string>
 function getCoreaudiodPid() {
     local pid="$(ps aux | grep /usr/sbin/coreaudiod | head -1 | awk '{print $2}')"
     echo $pid
@@ -23,3 +34,7 @@ do
     
     sleep 1.5
 done
+</string>
+</array>
+</dict>
+</plist>

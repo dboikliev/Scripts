@@ -1,16 +1,20 @@
 Param(
-  [Parameter(Mandatory=$true)][string]$path
+    [string]$Path = '.'
 )
 
-$current = pwd
-
-ls $path -Directory | 
-    ? { Test-Path "$($_.FullName)\.git" } | 
-    % { 
-        write "Pulling $($_.FullName)"; 
-        cd $_.FullName; 
+if (![System.IO.Directory]::Exists($Path)) {
+    Write-Error "$($Path) is not a directory."
+}
+else {
+    $current = Get-Location  
+    Get-ChildItem $dir -Directory | 
+    Where-Object { Test-Path "$($_.FullName)\.git" } | 
+    ForEach-Object { 
+        Write-Output "Pulling $($_.FullName)"; 
+        Set-Location $_.FullName; 
         git pull; 
-        cd .. 
+        Set-Location .. 
     }; 
 
-cd $current
+    Set-Location $current
+}

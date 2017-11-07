@@ -7,7 +7,7 @@ if (![System.IO.Directory]::Exists($Path)) {
 }
 else {
     $current = Get-Location  
-    Get-ChildItem $dir -Directory | 
+    Get-ChildItem $Path -Directory | 
     Where-Object { Test-Path "$($_.FullName)\.git" } | 
     ForEach-Object { 
         Write-Output "Pulling $($_.FullName)"; 

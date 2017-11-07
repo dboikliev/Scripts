@@ -1,7 +1,16 @@
 Param(
-  [string]$path
+  [Parameter(Mandatory=$true)][string]$path
 )
 
 $current = pwd
 
-ls $path -Directory | ? { Test-Path "$($_.FullName)\.git" } | % { write "Pulling $($_.FullName)"; cd $_.FullName; git pull; cd .. }; cd $current
+ls $path -Directory | 
+    ? { Test-Path "$($_.FullName)\.git" } | 
+    % { 
+        write "Pulling $($_.FullName)"; 
+        cd $_.FullName; 
+        git pull; 
+        cd .. 
+    }; 
+
+cd $current

@@ -1,4 +1,4 @@
-# PowerShell script for pulling all repositories in a specified directory.
+PowerShell script for pulling all repositories in a specified directory.
 
 1. If a path is not supplied use the current directory.
 1. Check if the path is a valid directory and display and error if not.

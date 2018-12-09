@@ -1,4 +1,4 @@
-#AutoHotkey scripts for improving some tasks on Windows
+# AutoHotkey scripts for improving some tasks on Windows
 
 #### change-layout-capslock 
 
